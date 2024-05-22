@@ -1,0 +1,146 @@
+﻿<Window x:Class="Damex_Vagtplan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Damex_Vagtplan" d:DataContext="{d:DesignInstance}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Name="MainGrid" Margin="-180,2,-265,-88">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="104*" />
+            <ColumnDefinition Width="48*" />
+            <ColumnDefinition Width="97*" />
+        </Grid.ColumnDefinitions>
+        <!-- DataGrid for schedule -->
+        <DataGrid x:Name="scheduleGrid" AutoGenerateColumns="False" Margin="290,170,447,138" Grid.ColumnSpan="3" Background="#FFD6E8D6">
+            <DataGrid.Columns>
+                <!-- Week column -->
+                <DataGridTextColumn Header="Week 1" Width="53" />
+                <!-- Morning shift -->
+                <DataGridTextColumn x:Name="Morning1" Header="Morning" Width="150">
+                    <!-- Method to place text "Monday" in the middle of the column header -->
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <!-- Afternoon shift -->
+                <DataGridTextColumn Header="Afternoon" Width="70" />
+                <!-- Evening shift -->
+                <DataGridTextColumn Header="Evening" Width=" 70" />
+                <!-- Whole Day shift -->
+                <DataGridTextColumn Header="Whole Day" Width=" 70" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- Textblocks for Weekdays -->
+        <TextBlock HorizontalAlignment="Left" Margin="304,200,0,0" TextWrapping="Wrap" Text="Monday" VerticalAlignment="Top" Height="16" Width="44" />
+        <TextBlock HorizontalAlignment="Left" Margin="304,224,0,0" TextWrapping="Wrap" Text="Tuesday" VerticalAlignment="Top" Height="16" Width="50" />
+        <TextBlock HorizontalAlignment="Left" Margin="305,246,0,0" TextWrapping="Wrap" Text="Wednesday" VerticalAlignment="Top" Height="16" Width="73" />
+        <TextBlock HorizontalAlignment="Left" Margin="304,270,0,0" TextWrapping="Wrap" Text="Thursday" VerticalAlignment="Top" Height="16" Width="50" />
+        <TextBlock HorizontalAlignment="Left" Margin="304,294,0,0" TextWrapping="Wrap" Text="Friday" VerticalAlignment="Top" RenderTransformOrigin="0.507,0.629" Height="16" Width="32" />
+        <TextBlock HorizontalAlignment="Left" Margin="306,317,0,0" TextWrapping="Wrap" Text="Saturday" VerticalAlignment="Top" Height="16" Width="48" />
+        <TextBlock HorizontalAlignment="Left" Margin="306,340,0,0" TextWrapping="Wrap" Text="Sunday" VerticalAlignment="Top" Height="16" Width="40" />
+
+        <!-- Textboxes for Morning -->
+        <!-- Monday -->
+        <TextBox x:Name="TxtBox1a" HorizontalAlignment="Left" Margin="382,199,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[1], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <TextBox x:Name="TxtBox1b" HorizontalAlignment="Left" Margin="432,199,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[2], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <!-- Tuesday -->
+        <TextBox x:Name="TxtBox2a" HorizontalAlignment="Left" Margin="382,222,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[5], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <TextBox x:Name="TxtBox2b" HorizontalAlignment="Left" Margin="432,222,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[6], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <!-- Wednesday -->
+        <TextBox x:Name="TxtBox3a" HorizontalAlignment="Left" Margin="382,245,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[9], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <TextBox x:Name="TxtBox3b" HorizontalAlignment="Left" Margin="432,245,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[10], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <!-- Thursday -->
+        <TextBox x:Name="TxtBox4a" HorizontalAlignment="Left" Margin="382,270,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[13], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <TextBox x:Name="TxtBox4b" HorizontalAlignment="Left" Margin="432,270,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[14], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <!-- Friday -->
+        <TextBox x:Name="TxtBox5a" HorizontalAlignment="Left" Margin="382,293,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[17], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+        <TextBox x:Name="TxtBox5b" HorizontalAlignment="Left" Margin="432,293,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[18], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="46" Height="18" />
+
+        <!-- Textboxes for Afternoon -->
+        <!-- Monday -->
+        <TextBox x:Name="TxtBoxAfn1" HorizontalAlignment="Left" Margin="510,198,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[3], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="56" Height="18" Grid.ColumnSpan="2" />
+        <!-- Tuesday -->
+        <TextBox x:Name="TxtBoxAfn2" HorizontalAlignment="Left" Margin="510,221,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[7], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="56" Height="18" Grid.ColumnSpan="2" />
+        <!-- Wednesday -->
+        <TextBox x:Name="TxtBoxAfn3" HorizontalAlignment="Left" Margin="510,244,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[11], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="56" Height="18" Grid.ColumnSpan="2" />
+        <!-- Thursday -->
+        <TextBox x:Name="TxtBoxAfn4" HorizontalAlignment="Left" Margin="510,269,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[15], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="56" Height="18" Grid.ColumnSpan="2" />
+        <!-- Friday -->
+        <TextBox x:Name="TxtBoxAfn5" HorizontalAlignment="Left" Margin="510,293,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[19], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="56" Height="18" Grid.ColumnSpan="2" />
+
+        <!-- Textboxes for Evening -->
+        <!-- Monday -->
+        <TextBox x:Name="TxtBoxEve1" HorizontalAlignment="Left" Margin="60,199,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[4], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="48" Height="18" Grid.Column="1" />
+        <!-- Tuesday -->
+        <TextBox x:Name="TxtBoxEve2" HorizontalAlignment="Left" Margin="60,221,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[8], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="48" Height="18" Grid.Column="1" />
+        <!-- Wednesday -->
+        <TextBox x:Name="TxtBoxEve3" HorizontalAlignment="Left" Margin="60,244,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[12], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="48" Height="18" Grid.Column="1" />
+        <!-- Thursday -->
+        <TextBox x:Name="TxtBoxEve4" HorizontalAlignment="Left" Margin="60,269,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[16], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="48" Height="18" Grid.Column="1" />
+        <!-- Friday -->
+        <TextBox x:Name="TxtBoxEve5" HorizontalAlignment="Left" Margin="60,293,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[20], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="48" Height="18" Grid.Column="1" />
+
+        <!-- Textboxes for Weekend -->
+        <!-- Saturday -->
+        <TextBox x:Name="TxtBoxWnd1" HorizontalAlignment="Left" Margin="122,317,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[21], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="60" Grid.Column="1" Height="18" />
+        <!-- Sunday -->
+        <TextBox x:Name="TxtBoxWnd2" HorizontalAlignment="Left" Margin="122,338,0,0" TextWrapping="Wrap" Text="{Binding AssignedEmployeeInitials[0], UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="60" Grid.Column="1" Height="18" />
+        <!-- ListBox for displaying people -->
+
+        <!-- StackPanel for employee details -->
+        <StackPanel x:Name="StackPanel1" Grid.ColumnSpan="2" Margin="420,21,120,350" Background="#FFD6E8D6" >
+            <!-- ComboBox for selecting an employee -->
+            <StackPanel Background="{Binding SelectedEmployee.Color}">
+                <ComboBox Name="cbxEmployees" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee}" SelectionChanged="ListBox_SelectionChanged" DisplayMemberPath="Initials" Margin="2,2,2,2" Height="24" Grid.ColumnSpan="2" Width="77" HorizontalAlignment="Left" />
+            </StackPanel>
+            <!-- Textboxes for employee details -->
+            <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Text="Name:" Width="37" Margin="15,0,15,0" />
+                <TextBlock TextWrapping="Wrap" Text="{Binding SelectedEmployee.Name}" Width="155" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Text="Phone:" Width="37" Margin="15,0,15,0" />
+                <TextBlock TextWrapping="Wrap" Text="{Binding SelectedEmployee.Phone}" Width="155" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Text="Email:" Width="37" Margin="15,0,15,0" />
+                <TextBlock TextWrapping="Wrap" Text="{Binding SelectedEmployee.Email}" Width="155" />
+            </StackPanel>
+            <StackPanel Margin="0,9,0,0" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Text="Available hours:" Width="90" Margin="15,0,0,0" />
+                <TextBlock TextWrapping="Wrap" Text="{Binding SelectedEmployee.Availability.AvailableHours, UpdateSourceTrigger=PropertyChanged}"  Width="155" />
+            </StackPanel>
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                <TextBlock TextWrapping="Wrap" Text="Assigned hours:" Width="90" Margin="15,0,0,0" />
+                <TextBlock TextWrapping="Wrap" Text="{Binding SelectedEmployee.Availability.WorkedHours, UpdateSourceTrigger=PropertyChanged}"  Width="155" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Stackpanel with person count -->
+        <StackPanel Margin="121,23,35,351" Background="Honeydew" Grid.Column="1">
+            <TextBlock TextWrapping="Wrap" Text="Shift Counters:" Foreground="Black" />
+            <Border Background="#FF33FF57" Padding="5">
+                <TextBlock x:Name="CountJV" TextWrapping="Wrap" Text="JV: 0" HorizontalAlignment="Left" />
+            </Border>
+            <Border Background="#FF3357FF" Padding="5">
+                <TextBlock x:Name="CountLA" TextWrapping="Wrap" Text="LA: 0" HorizontalAlignment="Left" />
+            </Border>
+            <Border Background="#FFFF33A1" Padding="5">
+                <TextBlock x:Name="CountRR" TextWrapping="Wrap" Text="RR: 0" HorizontalAlignment="Left" />
+            </Border>
+            <Border Background="#FFFF5733" Padding="5" >
+                <TextBlock x:Name="CountJB" TextWrapping="Wrap" Text="JB: 0" HorizontalAlignment="Left" />
+            </Border>
+        </StackPanel>
+
+        <Button x:Name="btnAvailability" Background="{Binding SelectedEmployee.Color}" Content="Update Availability" IsEnabled="False" Click="OpenAvailabilityWindow" Margin="301,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="35" />
+        <Button Name="btnUpdate" Content="Update Schedule" HorizontalAlignment="Left" Margin="301,72,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="btnUpdate_Click" />
+        <Button x:Name="btnReset" Content="Reset Schedule" HorizontalAlignment="Left" Margin="301,120,0,0" VerticalAlignment="Top" Width="110" Height="36" Click="btnReset_Click" />
+        <Label Content="{Binding Output}" Background="DarkGray" HorizontalAlignment="Left" Margin="52,170,0,0" VerticalAlignment="Top" Width="132" Height="212" Grid.Column="2"/>
+
+    </Grid>
+</Window>

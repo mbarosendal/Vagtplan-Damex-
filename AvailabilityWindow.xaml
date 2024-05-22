@@ -1,0 +1,114 @@
+﻿<Window x:Class="Damex_Vagtplan.AvailabilityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Damex_Vagtplan" d:DataContext="{d:DesignInstance}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Name="MainGrid" Margin="-180,2,-265,-88">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="520*" />
+            <ColumnDefinition Width="271*" />
+            <ColumnDefinition Width="454*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- DataGrid for schedule -->
+        <DataGrid x:Name="scheduleGrid" AutoGenerateColumns="False" Margin="428,38,440,236" Grid.ColumnSpan="3" Background="#FFD6E8D6">
+            <DataGrid.Columns>
+                <!-- Week column -->
+                <DataGridTextColumn Header="Week 1" Width="53" />
+                <!-- Morning shift -->
+                <DataGridTextColumn x:Name="Morning1" Header="Morning" Width="150">
+                    <!-- Method to place text "Monday" in the middle of the column header -->
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <!-- Afternoon shift -->
+                <DataGridTextColumn Header="Afternoon" Width="70" />
+                <!-- Evening shift -->
+                <DataGridTextColumn Header="Evening" Width=" 70" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- Textblocks for Weekdays -->
+        <TextBlock HorizontalAlignment="Left" Margin="432,67,0,0" TextWrapping="Wrap" Text="Monday" VerticalAlignment="Top" Height="16" Width="44" />
+        <TextBlock HorizontalAlignment="Left" Margin="432,91,0,0" TextWrapping="Wrap" Text="Tuesday" VerticalAlignment="Top" Height="16" Width="50" />
+        <TextBlock HorizontalAlignment="Left" Margin="432,113,0,0" TextWrapping="Wrap" Text="Wednesday" VerticalAlignment="Top" Height="16" Width="73" />
+        <TextBlock HorizontalAlignment="Left" Margin="432,137,0,0" TextWrapping="Wrap" Text="Thursday" VerticalAlignment="Top" Height="16" Width="50" />
+        <TextBlock HorizontalAlignment="Left" Margin="432,161,0,0" TextWrapping="Wrap" Text="Friday" VerticalAlignment="Top" RenderTransformOrigin="0.507,0.629" Height="16" Width="32" />
+        <TextBlock HorizontalAlignment="Left" Margin="434,184,0,0" TextWrapping="Wrap" Text="Saturday" VerticalAlignment="Top" Height="16" Width="48" />
+        <TextBlock HorizontalAlignment="Left" Margin="434,207,0,0" TextWrapping="Wrap" Text="Sunday" VerticalAlignment="Top" Height="16" Width="39" />
+
+        <!-- Sunday -->
+        <Button x:Name="ToggleButtonWnd2" HorizontalAlignment="Left" Margin="510,205,0,0" VerticalAlignment="Top" Width="250" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Sunday,WholeDay" />
+
+        <!-- Textboxes for Morning -->
+        <!-- Monday -->
+        <Button x:Name="ToggleButton1a" HorizontalAlignment="Left" Margin="510,66,0,0" VerticalAlignment="Top" Width="101" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Monday,Morning" />
+        <!-- Tuesday -->
+        <Button x:Name="ToggleButton2a" HorizontalAlignment="Left" Margin="510,89,0,0" VerticalAlignment="Top" Width="101" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Tuesday,Morning" />
+        <!-- Wednesday -->
+        <Button x:Name="ToggleButton3a" HorizontalAlignment="Left" Margin="510,112,0,0" VerticalAlignment="Top" Width="101" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Wednesday,Morning" />
+        <!-- Thursday -->
+        <Button x:Name="ToggleButton4a" HorizontalAlignment="Left" Margin="510,137,0,0" VerticalAlignment="Top" Width="101" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Thursday,Morning" />
+        <!-- Friday -->
+        <Button x:Name="ToggleButton5a" HorizontalAlignment="Left" Margin="510,160,0,0" VerticalAlignment="Top" Width="101" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Friday,Morning" />
+
+        <!-- Textboxes for Afternoon -->
+        <!-- Monday -->
+        <Button x:Name="ToggleButtonAfn1" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Monday,Afternoon" />
+        <!-- Tuesday -->
+        <Button x:Name="ToggleButtonAfn2" HorizontalAlignment="Center" Margin="0,88,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Tuesday,Afternoon" />
+        <!-- Wednesday -->
+        <Button x:Name="ToggleButtonAfn3" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Wednesday,Afternoon" />
+        <!-- Thursday -->
+        <Button x:Name="ToggleButtonAfn4" HorizontalAlignment="Center" Margin="0,136,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Thursday,Afternoon" />
+        <!-- Friday -->
+        <Button x:Name="ToggleButtonAfn5" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Friday,Afternoon" />
+
+        <!-- Textboxes for Evening -->
+        <!-- Monday -->
+        <Button x:Name="ToggleButtonEve1" HorizontalAlignment="Left" Margin="180,66,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Monday,Evening" />
+        <!-- Tuesday -->
+        <Button x:Name="ToggleButtonEve2" HorizontalAlignment="Left" Margin="180,88,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Tuesday,Evening" />
+        <!-- Wednesday -->
+        <Button x:Name="ToggleButtonEve3" HorizontalAlignment="Left" Margin="180,111,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Wednesday,Evening" />
+        <!-- Thursday -->
+        <Button x:Name="ToggleButtonEve4" HorizontalAlignment="Left" Margin="180,136,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Thursday,Evening" />
+        <!-- Friday -->
+        <Button x:Name="ToggleButtonEve5" HorizontalAlignment="Left" Margin="180,160,0,0" VerticalAlignment="Top" Width="60" Height="18" Grid.Column="1" Content="" Click="ToggleButton_Click" Tag="Friday,Evening" />
+
+        <!-- Textboxes for Saturday -->
+        <!-- Saturday -->
+        <Button x:Name="ToggleButtonWnd1" HorizontalAlignment="Left" Margin="510,184,0,0" VerticalAlignment="Top" Width="250" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Sunday,WholeDay" />
+
+        <ListBox Grid.Column="2" ItemsSource="{Binding SelectedEmployee.Availability.AvailableShifts }" Margin="38,22,279,105">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Name="btnReset" Content="Reset Availability" HorizontalAlignment="Left" Margin="448,0,0,0" VerticalAlignment="Center" Click="btnReset_Click" Grid.ColumnSpan="2"/>
+
+        <StackPanel HorizontalAlignment="Left" Margin="219,65,0,0" Orientation="Vertical" VerticalAlignment="Top">
+            <Label Content="Initials:" Background="Gainsboro"/>
+            <Label Content="Name:" Background="Gainsboro"/>
+            <Label Content="Phone:" Background="Gainsboro"/>
+            <Label Content="Email:" Background="Gainsboro"/>
+            <Label Content="Hours:" />
+        </StackPanel>
+
+        <TextBlock Text="{Binding SelectedEmployee.Initials}" Padding="5" HorizontalAlignment="Left" Margin="268,66,0,0" VerticalAlignment="Top" Height="22" Width="143" Background="Gainsboro"/>
+        <TextBlock Text="{Binding SelectedEmployee.Name}" Padding="5" Width="143" VerticalAlignment="Top" Margin="268,93,0,0" Height="22" HorizontalAlignment="Left" Background="Gainsboro"/>
+        <TextBlock Text="{Binding SelectedEmployee.Phone}" Padding="5" HorizontalAlignment="Left" Margin="268,120,0,0" VerticalAlignment="Top" Height="22" Width="143" Background="Gainsboro"/>
+        <TextBlock Text="{Binding SelectedEmployee.Email}" Padding="5" HorizontalAlignment="Left" Margin="268,147,0,0" VerticalAlignment="Top" Height="22" Width="143" Background="Gainsboro"/>
+        <TextBox Text="{Binding SelectedEmployee.Availability.AvailableHours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="5" HorizontalAlignment="Left" Margin="268,171,0,0" VerticalAlignment="Top" Height="29" Width="143"/>
+
+
+    </Grid>
+</Window>

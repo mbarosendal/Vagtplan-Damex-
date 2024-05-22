@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Damex_Vagtplan", "Damex_Vagtplan.csproj", "{2E22B99C-8F12-42ED-B8F8-62305B54B4C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E22B99C-8F12-42ED-B8F8-62305B54B4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E22B99C-8F12-42ED-B8F8-62305B54B4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E22B99C-8F12-42ED-B8F8-62305B54B4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E22B99C-8F12-42ED-B8F8-62305B54B4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3C2382B-2D66-49A8-BAEF-6BC23F4F413E}
+	EndGlobalSection
+EndGlobal
