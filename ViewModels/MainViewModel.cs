@@ -21,7 +21,7 @@ namespace Damex_Vagtplan
         private Dictionary<WorkShift, Employee> _assignedShifts;
         // En observable-kollektion, der henter initialerne fra Dictionary'en assignedShifts, så de nemmere kan vises i brugergrænsefladen.
         // Indexeringen tilsvarer vagterne, f.eks. tilsvarer index 0 i kollektionen Søndags-WholeDay-vagten, index 1 tilsvarer Mandags-Morning-Vagt osv.
-        // Textbox'ene i vores UI er bundet til indexerne i den her kollektion.
+        // Textbox'ene i vores UI er bundet til indexerne i den her kollektion. 
         private ObservableCollection<string> _assignedEmployeeInitials;
 
         public Employee SelectedEmployee
