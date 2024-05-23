@@ -59,7 +59,6 @@
       <DependentUpon>AvailabilityWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\AvailableShift.cs" />
-    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\AvailabilityViewModel.cs" />
     <Compile Include="Models\EmployeeRepository.cs" />
@@ -111,6 +110,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Commands\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -30,10 +30,10 @@ namespace Damex_Vagtplan
         }
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            // Get the clicked Button
+            // Get the clicked Button converted to a button.
             Button button = (Button)sender;
 
-            // Get the day and time slot from the button's Tag property
+            // Get the day and time slot from the button's Tag property.
             string[] tagParts = button.Tag.ToString().Split(',');
             DayOfWeek day = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), tagParts[0].Trim());
             TimeSlot timeSlot = (TimeSlot)Enum.Parse(typeof(TimeSlot), tagParts[1].Trim());
@@ -41,17 +41,17 @@ namespace Damex_Vagtplan
 
             if (selectedEmployee != null)
             {
-                // Check if the employee is available for the given day and time slot
+                // Check if the employee is available for the given day and time slot.
                 var availableShift = selectedEmployee.EmployeeAvailableShifts.FirstOrDefault(s => s.Day == day && s.TimeSlot == timeSlot);
 
                 Console.WriteLine($"Editing {selectedEmployee.Initials}'s shift");
 
                 if (availableShift != null)
                 {
-                    // Toggle the availability
+                    // Toggle the availability.
                     availableShift.IsAvailable = !availableShift.IsAvailable;
 
-                    // Update the button background based on the availability
+                    // Update the button background based on the availability.
                     button.Background = availableShift.IsAvailable ? Brushes.Green : Brushes.Red;
                 }
                 else
@@ -69,16 +69,12 @@ namespace Damex_Vagtplan
         }
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            // Assuming selectedEmployee is accessible within this method
-
-            // Iterate through each available shift and set IsAvailable to true
             foreach (var shift in selectedEmployee.EmployeeAvailableShifts)
             {
                 shift.IsAvailable = true;
             }
 
-            // Reset available hours (doesn't work!)
-            selectedEmployee.Availability.AvailableHours = 40;
+            //selectedEmployee.Availability.AvailableHours = 40; (doesn't work!)
 
             UpdateScheduleColors();
         }
@@ -95,17 +91,17 @@ namespace Damex_Vagtplan
 
                     if (selectedEmployee != null)
                     {
-                        // Check if the employee is available for the given day and time slot
+                        // Check if the employee is available for the given day and time slot.
                         var availableShift = selectedEmployee.EmployeeAvailableShifts.FirstOrDefault(s => s.Day == day && s.TimeSlot == timeSlot);
 
                         if (availableShift != null)
                         {
-                            // Update the TextBox background based on the availability
+                            // Update the TextBox background based on the availability.
                             button.Background = availableShift.IsAvailable ? Brushes.Green : Brushes.Red;
                         }
                         else
                         {
-                            // If no specific shift is found, set a default color (e.g., Gray)
+                            // If no specific shift is found, set a default color.
                             button.Background = Brushes.Gray;
                         }
                     }

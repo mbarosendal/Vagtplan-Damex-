@@ -140,7 +140,6 @@
         <Button x:Name="btnAvailability" Background="{Binding SelectedEmployee.Color}" Content="Update Availability" IsEnabled="False" Click="OpenAvailabilityWindow" Margin="301,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="35" />
         <Button Name="btnUpdate" Content="Update Schedule" HorizontalAlignment="Left" Margin="301,72,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="btnUpdate_Click" />
         <Button x:Name="btnReset" Content="Reset Schedule" HorizontalAlignment="Left" Margin="301,120,0,0" VerticalAlignment="Top" Width="110" Height="36" Click="btnReset_Click" />
-        <Label Content="{Binding Output}" Background="DarkGray" HorizontalAlignment="Left" Margin="52,170,0,0" VerticalAlignment="Top" Width="132" Height="212" Grid.Column="2"/>
 
     </Grid>
 </Window>

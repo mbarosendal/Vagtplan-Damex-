@@ -3,6 +3,8 @@ using System.ComponentModel;
 
 namespace Damex_Vagtplan
 {
+    // AvailabilityViewModel klassen fungerer som en ViewModel til visning tilgængeligheds-data for en arbejder.
+    // Arbejderen er specifikt den arbejder, der er valgt i brugergrænsefladen.
     public class AvailabilityViewModel : INotifyPropertyChanged
     {
         private Employee selectedEmployee;
@@ -18,6 +20,7 @@ namespace Damex_Vagtplan
             }
         }
 
+        // Den valgte medarbejder i brugergrænsefladen.
         public Employee SelectedEmployee
         {
             get { return selectedEmployee; }
@@ -33,6 +36,7 @@ namespace Damex_Vagtplan
             }
         }
 
+        // De arbejdstimer, den valgte medarbejder har arbejdet i en uge.
         public int WorkedHours
         {
             get { return selectedEmployee?.Availability?.WorkedHours ?? 0; }
@@ -46,6 +50,7 @@ namespace Damex_Vagtplan
             }
         }
 
+        // De timer, den valgte medarbejder har til rådighed i en uge.
         public int AvailableHours
         {
             get { return selectedEmployee?.Availability?.AvailableHours ?? 0; }

@@ -6,12 +6,17 @@ using System.Windows.Media;
 
 namespace Damex_Vagtplan.Models
 {
+    // Representerer et repository til håndtering af medarbejderdata.
     public class EmployeeRepository
     {
+        // En kollektion til medarbejderne.
         private ObservableCollection<Employee> Employees;
 
         public EmployeeRepository()
         {
+            // Tilføj de initialiserede medarbejdere til kollektionen.
+            // Hver medarbejder får tildelt en standard tilgængelighed (Availability) og en liste med deres tilgængelige vagter.
+            // Hver medarbejder kan som udgangspunkt tage alle vagter og arbejde op til 40 timer.
             Employees = new ObservableCollection<Employee>
             {
                 new Employee(
@@ -21,7 +26,7 @@ namespace Damex_Vagtplan.Models
                     email: "john.brown@example.com",
                     color: new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFF5733")),
                     availability: new Availability(),
-                    employeeAvailableShifts: InitializeAvailableShifts() // Initialize available shifts for JB
+                    employeeAvailableShifts: InitializeAvailableShifts()
                     ),
 
                 new Employee(
@@ -31,7 +36,7 @@ namespace Damex_Vagtplan.Models
                     email: "jane.vance@example.com",
                     color: new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF33FF57")),
                     availability: new Availability(),
-                    employeeAvailableShifts: InitializeAvailableShifts() // Initialize available shifts for JB
+                    employeeAvailableShifts: InitializeAvailableShifts()
                     ),
 
                 new Employee(
@@ -41,7 +46,7 @@ namespace Damex_Vagtplan.Models
                     email: "lisa.adams@example.com",
                     color: new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF3357FF")),
                     availability: new Availability(),
-                    employeeAvailableShifts: InitializeAvailableShifts() // Initialize available shifts for JB
+                    employeeAvailableShifts: InitializeAvailableShifts()
                     ),
 
                 new Employee(
@@ -51,16 +56,16 @@ namespace Damex_Vagtplan.Models
                     email: "robert.roe@example.com",
                     color: new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFF33A1")),
                     availability: new Availability(),
-                    employeeAvailableShifts: InitializeAvailableShifts() // Initialize available shifts for JB
+                    employeeAvailableShifts: InitializeAvailableShifts()
                     ),
             };
         }
 
+        // Hver AvailableShift-vagt i employeeAvailableShifts bliver initialiseret som tilgængelig (true) for medarbejderne.
         private List<AvailableShift> InitializeAvailableShifts()
         {
             var availableShifts = new List<AvailableShift>();
 
-            // Add all shifts as available for the employee
             foreach (DayOfWeek day in Enum.GetValues(typeof(DayOfWeek)))
             {
                 foreach (TimeSlot timeSlot in Enum.GetValues(typeof(TimeSlot)))
@@ -72,12 +77,12 @@ namespace Damex_Vagtplan.Models
             return availableShifts;
         }
 
-
         public ObservableCollection<Employee> GetEmployees()
         {
             return Employees;
         }
 
+        // Tilføjer en ny tilgængelig vagt til en bestemt medarbejder på en given dag og tid.
         public void AddAvailableShift(Employee selectedEmployee, DayOfWeek day, TimeSlot timeSlot)
         {
             var availableShift = selectedEmployee.EmployeeAvailableShifts.FirstOrDefault(s => s.Day == day && s.TimeSlot == timeSlot);
@@ -91,6 +96,7 @@ namespace Damex_Vagtplan.Models
             }
         }
 
+        // Fjerner en tilgængelig vagt fra en bestemt medarbejder på en given dag og tidspunkt.
         public void RemoveAvailableShift(Employee selectedEmployee, DayOfWeek day, TimeSlot timeSlot)
         {
             var availableShift = selectedEmployee.EmployeeAvailableShifts.FirstOrDefault(s => s.Day == day && s.TimeSlot == timeSlot);
@@ -111,54 +117,5 @@ namespace Damex_Vagtplan.Models
             }
             return null;
         }
-
-
-
-
-        /// Kode vi ikke har UI til herunder.
-
-        //public void AssignWorkShift(int employeeId, WorkShift workShift)
-        //{
-        //    var employee = employees.FirstOrDefault(e => e.EmployeeId == employeeId);
-        //    if (employee != null)
-        //    {
-        //        // Assign the work shift to the employee
-        //        // This assumes that the Employee class has a property to hold assigned work shifts
-        //        employee.WorkShifts.Add(workShift);
-        //    }
-        //}
-
-        //public void AddEmployee(Employee employee)
-        //{
-        //    employees.Add(employee);
-        //}
-
-        //public void RemoveEmployee(int employeeId)
-        //{
-        //    var employee = employees.FirstOrDefault(e => e.EmployeeId == employeeId);
-        //    if (employee != null)
-        //    {
-        //        employees.Remove(employee);
-        //    }
-        //}
-
-        //public Employee GetEmployee(int employeeId)
-        //{
-        //    return employees.FirstOrDefault(e => e.EmployeeId == employeeId);
-        //}
-
-        //public void UpdateEmployee(Employee updatedEmployee)
-        //{
-        //    var employee = employees.FirstOrDefault(e => e.EmployeeId == updatedEmployee.EmployeeId);
-        //    if (employee != null)
-        //    {
-        //        // Update properties of the employee
-        //        employee.Initials = updatedEmployee.Initials;
-        //        employee.Name = updatedEmployee.Name;
-        //        employee.Phone = updatedEmployee.Phone;
-        //        employee.Email = updatedEmployee.Email;
-        //    }
-        //}
-
     }
 }

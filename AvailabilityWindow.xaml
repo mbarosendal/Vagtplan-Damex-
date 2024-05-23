@@ -85,14 +85,6 @@
         <!-- Saturday -->
         <Button x:Name="ToggleButtonWnd1" HorizontalAlignment="Left" Margin="510,184,0,0" VerticalAlignment="Top" Width="250" Height="18" Grid.ColumnSpan="2" Content="" Click="ToggleButton_Click" Tag="Sunday,WholeDay" />
 
-        <ListBox Grid.Column="2" ItemsSource="{Binding SelectedEmployee.Availability.AvailableShifts }" Margin="38,22,279,105">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
         <Button Name="btnReset" Content="Reset Availability" HorizontalAlignment="Left" Margin="448,0,0,0" VerticalAlignment="Center" Click="btnReset_Click" Grid.ColumnSpan="2"/>
 
         <StackPanel HorizontalAlignment="Left" Margin="219,65,0,0" Orientation="Vertical" VerticalAlignment="Top">

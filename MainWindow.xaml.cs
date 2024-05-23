@@ -44,7 +44,7 @@ namespace Damex_Vagtplan
             }
         }
 
-        // KEY: Sends the same instance selected in the ComboBox into the AvailabilityWindow's constructor.
+        // Sends the same instance selected in the ComboBox into the AvailabilityWindow's constructor.
         private void OpenAvailabilityWindow(object sender, RoutedEventArgs e)
         {
             //mvm.EmployeeRepository.LoadEmployees();
@@ -63,7 +63,7 @@ namespace Damex_Vagtplan
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            //mvm.ResetSchedule();
+            //mvm.ResetSchedule(); (not working!)
             UpdateScheduleColors();
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -89,8 +89,6 @@ namespace Damex_Vagtplan
             int countLA = 0;
             int countRR = 0;
             int countJB = 0;
-
-            // prøv med en observablecollection til textboxes --- alternativ tæl txtboxes med name value... maingrid.child elements
 
             var textBoxes = new TextBox[]
             {
